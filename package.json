@@ -1,0 +1,21 @@
+{
+  "name": "createfirstjs",
+  "version": "1.0.0",
+  "description": "Testing the first test as of now ",
+  "main": "Helloworld.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "testing",
+    "test",
+    "is",
+    "working",
+    "fine"
+  ],
+  "author": "Kishan Bheemajiyani",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^25.1.0"
+  }
+}
