@@ -1,28 +1,28 @@
-#version: 2.1
-#orbs:
- # node: circleci/node@1.1.6
-#jobs:
- # build-and-test:
-  #  executor:
-   #   name: node/default
-    #steps:
-     # - checkout
-      #- node/with-cache:
-       #   steps:
-        #    - run: npm install
-         #   - run: npm test
-#workflows:
- #   build-and-test:
-  #    jobs:
-   #     - build-and-test
 version: 2.1
 orbs:
-  ghostinspector: ghostinspector/test-runner@1.0.0
+  node: circleci/node@1.1.6
 jobs:
-  build_and_test:
-    executor: default
+  build-and-test:
+    executor:
+      name: node/default
     steps:
-      - ghostinspector/execute-suite:
-          id: $GI_SUITE
-          extra-params: '{"myVar": "foo", "otherVar": "bar"}'
-          wait: true
+      - checkout
+      - node/with-cache:
+          steps:
+            - run: npm install
+            - run: npm test
+workflows:
+    build-and-test:
+      jobs:
+        - build-and-test
+#version: 2.1
+#orbs:
+ # ghostinspector: ghostinspector/test-runner@1.0.0
+#jobs:
+ # build_and_test:
+  #  executor: default
+   # steps:
+    #  - ghostinspector/execute-suite:
+     #     id: $GI_SUITE
+      #    extra-params: '{"myVar": "foo", "otherVar": "bar"}'
+       #   wait: true
