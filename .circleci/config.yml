@@ -2,10 +2,14 @@ version: 2.1
 orbs:
   ghostinspector: ghostinspector/test-runner@1.0.0
 jobs:
-  build:
+  execute-demo-test:
     executor: ghostinspector/default
     steps:
       -ghostinspector/execute-test:
         id: 5e2a358066fbd91d8bf6c29c
         wait: true
+workflows:
+  test:
+    jobs:
+      - execute-demo-test
       
