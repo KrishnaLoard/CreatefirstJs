@@ -1,17 +1,32 @@
+#version: 2.1
+#orbs:
+ # node: circleci/node@1.1.6
+#jobs:
+ # build-and-test:
+  #  executor:
+   #   name: node/default
+    #steps:
+     # - checkout
+      #- node/with-cache:
+       #   steps:
+        #    - run: npm install
+         #   - run: npm test
+#workflows:
+ #   build-and-test:
+  #    jobs:
+   #     - build-and-test
+
 version: 2.1
 orbs:
-  node: circleci/node@1.1.6
+  ghostinspector:ghostinspector/test-runner@1.0.0
 jobs:
-  build-and-test:
-    executor:
-      name: node/default
+  execute-demo-test:
+    executor: ghostinspector/default
     steps:
-      - checkout
-      - node/with-cache:
-          steps:
-            - run: npm install
-            - run: npm test
+      - ghostinspector/execute-test:
+        id: 5e2a358066fbd91d8bf6c29c
+        wait: true
 workflows:
-    build-and-test:
-      jobs:
-        - build-and-test
+  test:
+    jobs:
+      - execute-demo-test
