@@ -1,6 +1,8 @@
 version: 2.1
 orbs:
+  orb-tools: circleci/orb-tools@volatile
   ghostinspector: ghostinspector/test-runner@1.0.0
+
 executors:
   docker-executor:
     docker: 
@@ -15,9 +17,17 @@ jobs:
           id: 5e522ba041e57960a8c8addc
           extra-params: '{"paramOne": "expected value 1", "paramTwo": "expected value 2"}'
           wait: true
+  execute-suite-command:
+    executor: ghostinspector/default
+    steps:
+      - ghostinspector/execute-suite:
+          start-url: https://ghostinspector.com/
+          id: 5e28a95ebf494e1e71341919
+          extra-params: '{"paramOne": "expected value 1", "paramTwo": "expected value 2"}'
+          wait: true
 workflows:
   test:
     jobs:
       - execute-test-command
-      #- execute-suite-command
+      - execute-suite-command
       #- test-standalone-app-command
