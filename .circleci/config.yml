@@ -29,5 +29,5 @@ workflows:
   test:
     jobs:
       - execute-test-command
-      - execute-suite-command
+      #- execute-suite-command
       #- test-standalone-app-command
