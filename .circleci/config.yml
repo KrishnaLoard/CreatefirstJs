@@ -43,6 +43,7 @@ jobs:
       - ghostinspector/test-standalone-app:
           suite-id: 5e28a95ebf494e1e71341919
           network: gi-docker-network
+          NGROK_TOKEN: 4655086ed16ca93471dc336e069cdf9d6c5476ec
           extra-params: '{"sha":"f06c03a6dfc209aa2938a47a44af336f892f14ef63003f32946e66952683a044"}'
           vpn-target: 127.0.0.1:8000
 workflows:
