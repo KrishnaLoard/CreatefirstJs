@@ -38,13 +38,13 @@ jobs:
             docker pull ghostinspector/test-runner-standalone
             docker run -d \
               --network gi-docker-network \
-              --name test-application \
+              --name dorsastagingtest \
               ghostinspector/test-runner-standalone --sha=f06c03a6dfc209aa2938a47a44af336f892f14ef63003f32946e66952683a044
       - ghostinspector/test-standalone-app:
           suite-id: 5e28a95ebf494e1e71341919
           network: gi-docker-network
           extra-params: '{"sha":"f06c03a6dfc209aa2938a47a44af336f892f14ef63003f32946e66952683a044"}'
-          vpn-target: test-application:8000
+          vpn-target: 127.0.0.1:8000/accounts/login/
 workflows:
   test:
     jobs:
