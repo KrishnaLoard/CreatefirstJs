@@ -36,7 +36,7 @@ jobs:
           name: Start your application container, specifying application port and docker network
           command: |
             docker pull ghostinspector/test-runner-standalone
-            docker run -d \
+            docker run \
               -e NGROK_TOKEN=$NGROK_TOKEN \
               -e GI_API_KEY=$GI_API_KEY \
               -e GI_SUITE=5e28a95ebf494e1e71341919 \
