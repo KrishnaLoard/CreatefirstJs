@@ -35,17 +35,21 @@ jobs:
       - run:
           name: Start your application container, specifying application port and docker network
           command: |
+            docker pull ghostinspector/test-runner-standalone
             docker run -d \
+              -e APP_PORT=127.0.0.1:8080 \
+              -e GI_API_KEY=$GI_API_KEY \
+              -e GI_SUITE=5e28a95ebf494e1e71341919 \
+              -e NGROK_TOKEN=$NGROK_TOKEN \
               --network gi-docker-network \
               --name dorsastagingtest \
-              ghostinspector/test-runner-standalone --sha=f06c03a6dfc209aa2938a47a44af336f892f14ef63003f32946e66952683a044
+              ghostinspector/test-runner-standalone
       - ghostinspector/test-standalone-app:
-          start-url: https://staging.dorsa.ai/accounts/login/
           suite-id: 5e28a95ebf494e1e71341919
           network: gi-docker-network
-          extra-params: '{"sha":"f06c03a6dfc209aa2938a47a44af336f892f14ef63003f32946e66952683a044"}'
-          #vpn-token: 1YervfSSj6VRPWWCNoNS9rbnv0P_6JHzJqjemjb2m4vZYbTCC
-          #vpn-target: 127.0.0.1:8000
+          extra-params: '{"sha":"96ea03dbb91bf4666e83cbdc0fd241ae1df8fe0801dcf23824fdd90c2200b3ee"}'
+          vpn-token: 1YervfSSj6VRPWWCNoNS9rbnv0P_6JHzJqjemjb2m4vZYbTCC
+          vpn-target: 127.0.0.1:8000
 workflows:
   test:
     jobs:
