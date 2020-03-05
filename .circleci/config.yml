@@ -40,7 +40,7 @@ jobs:
               -e APP_PORT=127.0.0.1:8080 \
               -e GI_API_KEY=$GI_API_KEY \
               -e GI_SUITE=5e28a95ebf494e1e71341919 \
-              -e NGROK_TOKEN=1YervfSSj6VRPWWCNoNS9rbnv0P_6JHzJqjemjb2m4vZYbTCC \
+              -e NGROK_TOKEN=1YieMO8foDEamPW4W4A0bfS213T_tfnZMAErqipF2BAJV2qn \
               --network gi-docker-network \
               --name dorsastagingtest \
               ghostinspector/test-runner-standalone
@@ -48,7 +48,7 @@ jobs:
           suite-id: 5e28a95ebf494e1e71341919
           network: gi-docker-network
           extra-params: '{"sha":"96ea03dbb91bf4666e83cbdc0fd241ae1df8fe0801dcf23824fdd90c2200b3ee"}'
-          vpn-token: 1YervfSSj6VRPWWCNoNS9rbnv0P_6JHzJqjemjb2m4vZYbTCC
+          vpn-token: 1YieMO8foDEamPW4W4A0bfS213T_tfnZMAErqipF2BAJV2qn
           vpn-target: 127.0.0.1:8000
 workflows:
   test:
