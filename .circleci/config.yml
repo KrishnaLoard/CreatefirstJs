@@ -45,7 +45,7 @@ jobs:
               --name dorsastagingtest \
               ghostinspector/test-runner-standalone
       - ghostinspector/test-standalone-app:
-          #start-url: https://staging.dorsa.ai/accounts/login/
+          start-url: https://staging.dorsa.ai/accounts/login/
           suite-id: 5e28a95ebf494e1e71341919
           network: gi-docker-network
           extra-params: '{"sha":"563d73c2d9fe36eef732b36e3c1567b23b278fb3655cfd9b1c9759f03cd72140"}'
