@@ -37,7 +37,7 @@ jobs:
           command: |
             docker pull ghostinspector/test-runner-standalone
             docker run -d \
-              -e APP_PORT=127.0.0.1:8080 \
+              -e APP_PORT=127.0.0.1:8000 \
               -e GI_API_KEY=$GI_API_KEY \
               -e GI_SUITE=5e28a95ebf494e1e71341919 \
               -e NGROK_TOKEN=1YifwszKb6W5HrvQ6RUCHfcmHvf_7R7xg2vxXScU4tCToTcQF \
