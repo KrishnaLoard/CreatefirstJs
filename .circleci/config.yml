@@ -36,20 +36,20 @@ jobs:
           name: Start your application container, specifying application port and docker network
           command: |
             docker pull ghostinspector/test-runner-standalone
-            docker run -d \
-              -e APP_PORT=127.0.0.1:8000 \
+            docker run \
+              -e NGROK_TOKEN=1YifwszKb6W5HrvQ6RUCHfcmHvf_7R7xg2vxXScU4tCToTcQF \
               -e GI_API_KEY=$GI_API_KEY \
               -e GI_SUITE=5e28a95ebf494e1e71341919 \
-              -e NGROK_TOKEN=1YifwszKb6W5HrvQ6RUCHfcmHvf_7R7xg2vxXScU4tCToTcQF \
+              -e APP_PORT=127.0.0.1:8000 \
               --network gi-docker-network \
               --name dorsastagingtest \
               ghostinspector/test-runner-standalone
-      - ghostinspector/test-standalone-app:
-          suite-id: 5e28a95ebf494e1e71341919
-          network: gi-docker-network
-          extra-params: '{"sha":"563d73c2d9fe36eef732b36e3c1567b23b278fb3655cfd9b1c9759f03cd72140"}'
-          vpn-token: 1YifwszKb6W5HrvQ6RUCHfcmHvf_7R7xg2vxXScU4tCToTcQF
-          vpn-target: 127.0.0.1:8000
+      #- ghostinspector/test-standalone-app:
+       #   suite-id: 5e28a95ebf494e1e71341919
+        #  network: gi-docker-network
+         # extra-params: '{"sha":"563d73c2d9fe36eef732b36e3c1567b23b278fb3655cfd9b1c9759f03cd72140"}'
+          #vpn-token: 1YifwszKb6W5HrvQ6RUCHfcmHvf_7R7xg2vxXScU4tCToTcQF
+          #vpn-target: 127.0.0.1:8000
 workflows:
   test:
     jobs:
