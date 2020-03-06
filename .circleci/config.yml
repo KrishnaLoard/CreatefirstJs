@@ -21,7 +21,7 @@ jobs:
     executor: ghostinspector/default
     steps:
       - ghostinspector/execute-suite:
-          start-url: https://ghostinspector.com/
+          start-url: https://staging.dorsa.ai/accounts/login/
           id: 5e28a95ebf494e1e71341919
           extra-params: '{"paramOne": "expected value 1", "paramTwo": "expected value 2"}'
           wait: true
@@ -50,7 +50,7 @@ jobs:
           network: gi-docker-network
           extra-params: '{"sha":"563d73c2d9fe36eef732b36e3c1567b23b278fb3655cfd9b1c9759f03cd72140"}'
           vpn-token: 1YifwszKb6W5HrvQ6RUCHfcmHvf_7R7xg2vxXScU4tCToTcQF
-          #vpn-target: https:
+          vpn-target: ghostinspector/test-runner-standalone:8000
 workflows:
   test:
     jobs:
